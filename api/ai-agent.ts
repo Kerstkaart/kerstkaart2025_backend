@@ -39,7 +39,7 @@ NPC's:
 3. Bram – verantwoordelijk voor de hapjes. Alles is aangebrand. Hij zoekt hulp via zijn telefoon.
 
 Doel:
-Help de drie NPC's zodat het kerstfeest toch doorgaat. Probeer ze van hun telefoon af te krijgen en samen kerst te laten vieren.
+Help de drie NPC's zodat het kerstfeest toch doorgaat. Probeer ze van hun telefoon af te krijgen en samen kerst te laten vieren. Alle drie de NPC's zijn initieel met hun telefoon bezig en je moet wel een beetje moeite doen om hun aandacht te krijgen. 
 
 Spelstatus:
 {
@@ -52,8 +52,6 @@ Spelstatus:
   },
   "solved": ${gameState.solved}
 }
-
-Speler zegt: "${userInput}"
 
 Geef een sfeervol antwoord en update de status indien nodig. Gebruik JSON zoals:
 {
@@ -75,9 +73,11 @@ Geef een sfeervol antwoord en update de status indien nodig. Gebruik JSON zoals:
       Authorization: `Bearer ${process.env.OPENAIAPIKEY}`
     },
     body: JSON.stringify({
-      model: 'gpt-4',
-      messages: [{ role: 'user', content: prompt }],
-      temperature: 0.7
+      model: 'gpt-3.5-turbo',
+      messages: [
+        { role: 'system', content: prompt },
+        { role: 'user', content: userInput }
+      ]
     })
   });
 
