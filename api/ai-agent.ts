@@ -3,7 +3,11 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 type GameState = {
   location: string;
   inventory: string[];
-  puzzle: string;
+  npc: {
+    R: false,
+    L: false,
+    B: false
+  }
   solved: boolean;
 };
 
@@ -15,24 +19,43 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { userInput, gameState }: { userInput: string; gameState: GameState } = req.body;
 
   const prompt = `
-Je bent een AI in een kerstige text adventure. Hier is de huidige status:
-Locatie: ${gameState.location}
-Inventory: ${gameState.inventory.join(', ')}
-Puzzel: ${gameState.puzzle}
-Opgelost: ${gameState.solved}
+Je bent een AI-spelleider in een kerstige text adventure.
+
+Setting:
+Het is winter, bijna kerst en het sneeuwt. De speler arriveert in het dorpje "Tellytown": een klein, rustig dorpje. Normaal gesproken wordt hier ieder jaar een groot kerstfeest gevierd, maar dit jaar loopt alles in de soep...
+
+NPC's:
+1. Robert – verantwoordelijk voor de kerstlichtjes. De kabels zijn beschadigd. Hij is nu afgeleid en zit op zijn telefoon.
+2. Linda – verantwoordelijk voor de muziek. Ze luistert naar een playlist via haar headset en reageert nergens op.
+3. Bram – verantwoordelijk voor de hapjes. Alles is aangebrand. Hij zoekt hulp via zijn telefoon.
+
+Doel:
+Help de drie NPC's zodat het kerstfeest toch doorgaat. Probeer ze van hun telefoon af te krijgen en samen kerst te laten vieren.
+
+Spelstatus:
+{
+  "loc": ${gameState.location}
+  "inv": ${gameState.inventory.join(', ')}
+  "npc": {
+    "R": ${gameState.npc.R},
+    "L": ${gameState.npc.L},
+    "B": ${gameState.npc.B}
+  },
+  "solved": ${gameState.solved}
+}
 
 Speler zegt: "${userInput}"
 
-Geef een sfeervol antwoord en update de status indien nodig.
-Gebruik JSON zoals:
+Geef een sfeervol antwoord en update de status indien nodig. Gebruik JSON zoals:
 {
-  "narrative": "...",
-  "status_update": {
-    "location": "...",
-    "inventory": [...],
-    "puzzle": "...",
-    "solved": true/false
-  }
+  "loc": "plein",
+  "inv": ["kerstmuts"],
+  "npc": {
+    "R": false,
+    "L": false,
+    "B": false
+  },
+  "goal": false
 }
 `;
 
