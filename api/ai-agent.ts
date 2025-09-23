@@ -92,6 +92,8 @@ Geef een sfeervol antwoord en eindig het antwoord met een nieuwe regel, de heade
     }
   }
 }
+
+Let op: als de speler een actie uitvoert die gericht is op een NPC, update dan de locatie naar de plek waar die NPC zich bevindt. Bijvoorbeeld: als de speler zegt “ik praat met Linda”, dan wordt de locatie "huis van Linda".
 `;
 
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
