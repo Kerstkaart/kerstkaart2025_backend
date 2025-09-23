@@ -83,7 +83,7 @@ Geef een sfeervol antwoord en eindig het antwoord met een nieuwe regel, de heade
   });
 
   const data = await response.json();
-  console.log('📨 Prompt ontvangen:', data)
+  console.log('📨 Prompt ontvangen:', data.choices?.[0]?.message?)
   const reply = data.choices?.[0]?.message?.content;
 
   res.status(200).json({ reply });
