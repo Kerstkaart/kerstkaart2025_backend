@@ -3,12 +3,11 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 type GameState = {
   location: string;
   inventory: string[];
-  npc: {
-    R: false,
-    L: false,
-    B: false
+  npcHelped: {
+    Robert: false,
+    Linda: false,
+    Bram: false
   }
-  solved: boolean;
 };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -46,24 +45,22 @@ Spelstatus:
 {
   "location": ${gameState.location}
   "inventory": ${gameState.inventory.join(', ')}
-  "npc": {
-    "Robert": ${gameState.npc.R},
-    "Linda": ${gameState.npc.L},
-    "Bram": ${gameState.npc.B}
-  },
-  "solved": ${gameState.solved}
+  "npcHelped": {
+    "Robert": ${gameState.npcHelped.Robert},
+    "Linda": ${gameState.npcHelped.Linda},
+    "Bram": ${gameState.npcHelped.Bram}
+  }
 }
 
 Geef een sfeervol antwoord en eindig het antwoord met een nieuwe regel, de header "**GAME_STATE**" vervolgt door JSON zoals:
 {
   "location": "plein",
   "inventory": ["kerstmuts"],
-  "npc": {
+  "npcHelped": {
     "Robert": false,
     "Linda": false,
     "Bram": false
-  },
-  "solved": false
+  }
 }
 `;
 
