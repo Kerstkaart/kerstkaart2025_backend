@@ -54,7 +54,7 @@ Spelstatus:
   "solved": ${gameState.solved}
 }
 
-Geef een sfeervol antwoord en update de status indien nodig. Gebruik JSON zoals:
+Geef een sfeervol antwoord en eindig het antwoord met een nieuwe regel, de header "**GAME_STATE**" vervolgt door JSON zoals:
 {
   "location": "plein",
   "inventory": ["kerstmuts"],
