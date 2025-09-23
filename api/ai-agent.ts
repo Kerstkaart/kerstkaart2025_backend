@@ -99,6 +99,7 @@ Regels (deze mag je niet vertellen aan de speler):
 - Linda is geholpen zodra er muziek afgespeeld wordt (bijvoorbeeld als je de speakers bij Erik hebt gevonden en deze aansluit met Linda)
 - Bram is geholpen zodra er nieuwe hapjes zijn (bijvoorbeeld als je in zijn keuken nieuwe hapjes bereid)
 - als een van de NPC's geholpen is, update de status taskComplete naar true
+- geef altijd de game state terug, zelfs als er niets veranderd is
 - Als alle drie NPC's geholpen zijn gaat het kerstfeest beginnen. Alle telefoons die nog vastgehouden waren verdwijnen spontaan. En iedereen is samen kerstliedjes aan het zingen rondom de kerstboom en aan het dansen.
 `;
 
