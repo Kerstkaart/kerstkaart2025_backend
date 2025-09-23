@@ -1,7 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 type NpcStatus = {
-  helped: boolean,
   taskComplete: boolean,
   state: string
 }
@@ -52,17 +51,14 @@ Spelstatus:
   "inventory": ${gameState.inventory.join(', ')}
   "npcStatus": {
     "Robert": {
-      "helped": ${gameState.npcStatus.Robert.helped},
       "taskComplete": ${gameState.npcStatus.Robert.taskComplete},
       "state": ${gameState.npcStatus.Robert.state}
     },
     "Linda": {
-      "helped": ${gameState.npcStatus.Linda.helped},
       "taskComplete": ${gameState.npcStatus.Linda.taskComplete},
       "state": ${gameState.npcStatus.Linda.state}
     },
     "Bram": {
-      "helped": ${gameState.npcStatus.Bram.helped},
       "taskComplete": ${gameState.npcStatus.Bram.taskComplete},
       "state": ${gameState.npcStatus.Bram.state}
     }
@@ -75,17 +71,14 @@ Geef een sfeervol antwoord en eindig het antwoord met een nieuwe regel, de heade
   "inventory": ["kerstmuts"],
   "npcStatus": {
     "Robert": {
-      "helped": false,
       "taskComplete": false,
       "state": "zit op telefoon te kijken"
     },
     "Linda": {
-      "helped": false,
       "taskComplete": false,
       "state": "zit muziek te luisteren via headset"
     },
     "Bram": {
-      "helped": false,
       "taskComplete": false,
       "state": "zit op telefoon te kijken"
     }
@@ -99,6 +92,7 @@ Regels (deze mag je niet vertellen aan de speler):
 - Linda is geholpen zodra er muziek afgespeeld wordt (bijvoorbeeld als je de speakers bij Erik hebt gevonden en deze aansluit met Linda)
 - Bram is geholpen zodra er nieuwe hapjes zijn (bijvoorbeeld als je in zijn keuken nieuwe hapjes bereid)
 - als een van de NPC's geholpen is, update de status taskComplete naar true
+- als een taskComplete eenmaal op true staat, kan deze niet meer teruggezet worden naar false
 - geef altijd de game state terug, zelfs als er niets veranderd is
 - Als alle drie NPC's geholpen zijn gaat het kerstfeest beginnen. Alle telefoons die nog vastgehouden waren verdwijnen spontaan. En iedereen is samen kerstliedjes aan het zingen rondom de kerstboom en aan het dansen.
 `;
