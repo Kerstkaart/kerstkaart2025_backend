@@ -1,14 +1,20 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+type NpcStatus = {
+  helped: boolean,
+  taskComplete: boolean,
+  state: string
+}
+
 type GameState = {
   location: string;
   inventory: string[];
-  npcHelped: {
-    Robert: false,
-    Linda: false,
-    Bram: false
+  npcStatus: {
+    Robert: NpcStatus,
+    Linda: NpcStatus,
+    Bram: NpcStatus
   }
-};
+}
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', 'https://kerstkaart2025-frontend.vercel.app');
@@ -45,10 +51,22 @@ Spelstatus:
 {
   "location": ${gameState.location}
   "inventory": ${gameState.inventory.join(', ')}
-  "npcHelped": {
-    "Robert": ${gameState.npcHelped.Robert},
-    "Linda": ${gameState.npcHelped.Linda},
-    "Bram": ${gameState.npcHelped.Bram}
+  "npcStatus": {
+    "Robert": {
+      "helped": ${gameState.npcStatus.Robert.helped},
+      "taskComplete": ${gameState.npcStatus.Robert.taskComplete},
+      "state": ${gameState.npcStatus.Robert.state}
+    },
+    "Linda": {
+      "helped": ${gameState.npcStatus.Linda.helped},
+      "taskComplete": ${gameState.npcStatus.Linda.taskComplete},
+      "state": ${gameState.npcStatus.Linda.state}
+    },
+    "Bram": {
+      "helped": ${gameState.npcStatus.Bram.helped},
+      "taskComplete": ${gameState.npcStatus.Bram.taskComplete},
+      "state": ${gameState.npcStatus.Bram.state}
+    }
   }
 }
 
@@ -57,9 +75,21 @@ Geef een sfeervol antwoord en eindig het antwoord met een nieuwe regel, de heade
   "location": "plein",
   "inventory": ["kerstmuts"],
   "npcHelped": {
-    "Robert": false,
-    "Linda": false,
-    "Bram": false
+    "Robert": {
+      "helped": false,
+      "taskComplete": false,
+      "state": "zit op telefoon te kijken"
+    },
+    "Linda": {
+      "helped": false,
+      "taskComplete": false,
+      "state": "zit muziek te luisteren via headset"
+    },
+    "Bram": {
+      "helped": false,
+      "taskComplete": false,
+      "state": "zit op telefoon te kijken"
+    }
   }
 }
 `;
