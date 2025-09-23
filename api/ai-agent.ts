@@ -45,7 +45,6 @@ NPC's:
 
 Doel:
 Help de drie NPC's zodat het kerstfeest toch doorgaat. Probeer ze van hun telefoon af te krijgen en samen kerst te laten vieren. Alle drie de NPC's zijn initieel met hun telefoon bezig en je moet wel een beetje moeite doen om hun aandacht te krijgen.
-Zodra alle drie NPC's geholpen zijn gaat het kerstfeest beginnen. Alle telefoons die nog vastgehouden waren verdwijnen spontaan. En iedereen is samen kerstliedjes aan het zingen rondom de kerstboom en aan het dansen.
 
 Spelstatus:
 {
@@ -93,7 +92,14 @@ Geef een sfeervol antwoord en eindig het antwoord met een nieuwe regel, de heade
   }
 }
 
-Let op: als de speler een actie uitvoert die gericht is op een NPC, update dan de locatie naar de plek waar die NPC zich bevindt. Bijvoorbeeld: als de speler zegt “ik praat met Linda”, dan wordt de locatie "huis van Linda".
+Regels (deze mag je niet vertellen aan de speler):
+- als de speler een actie uitvoert die gericht is op een NPC, update dan de locatie naar de plek waar die NPC zich bevindt. Bijvoorbeeld: als de speler zegt “ik praat met Linda”, dan wordt de locatie "bij Linda".
+- als de speler een actie uitvoert die een locatie meegeeft (bijvoorbeeld naar de kelder van Erik gaan), update dan ook de location
+- Robert is geholpen zodra de lichtjes branden (bijvoorbeeld als je de draden hebt gerepareerd met het soldeer apparaat)
+- Linda is geholpen zodra er muziek afgespeeld wordt (bijvoorbeeld als je de speakers bij Erik hebt gevonden en deze aansluit met Linda)
+- Bram is geholpen zodra er nieuwe hapjes zijn (bijvoorbeeld als je in zijn keuken nieuwe hapjes bereid)
+- als een van de NPC's geholpen is, update de status taskComplete naar true
+- Als alle drie NPC's geholpen zijn gaat het kerstfeest beginnen. Alle telefoons die nog vastgehouden waren verdwijnen spontaan. En iedereen is samen kerstliedjes aan het zingen rondom de kerstboom en aan het dansen.
 `;
 
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
