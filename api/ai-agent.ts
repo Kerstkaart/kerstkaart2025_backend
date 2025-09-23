@@ -44,26 +44,26 @@ Zodra alle drie NPC's geholpen zijn gaat het kerstfeest beginnen. Alle telefoons
 
 Spelstatus:
 {
-  "loc": ${gameState.location}
-  "inv": ${gameState.inventory.join(', ')}
+  "location": ${gameState.location}
+  "inventory": ${gameState.inventory.join(', ')}
   "npc": {
-    "R": ${gameState.npc.R},
-    "L": ${gameState.npc.L},
-    "B": ${gameState.npc.B}
+    "Robert": ${gameState.npc.R},
+    "Linda": ${gameState.npc.L},
+    "Bram": ${gameState.npc.B}
   },
   "solved": ${gameState.solved}
 }
 
 Geef een sfeervol antwoord en update de status indien nodig. Gebruik JSON zoals:
 {
-  "loc": "plein",
-  "inv": ["kerstmuts"],
+  "location": "plein",
+  "inventory": ["kerstmuts"],
   "npc": {
-    "R": false,
-    "L": false,
-    "B": false
+    "Robert": false,
+    "Linda": false,
+    "Bram": false
   },
-  "goal": false
+  "solved": false
 }
 `;
 
@@ -83,6 +83,7 @@ Geef een sfeervol antwoord en update de status indien nodig. Gebruik JSON zoals:
   });
 
   const data = await response.json();
+  console.log('📨 Prompt ontvangen:', data)
   const reply = data.choices?.[0]?.message?.content;
 
   res.status(200).json({ reply });
