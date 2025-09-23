@@ -73,7 +73,7 @@ Geef een sfeervol antwoord en eindig het antwoord met een nieuwe regel, de heade
 {
   "location": "plein",
   "inventory": ["kerstmuts"],
-  "npcHelped": {
+  "npcStatus": {
     "Robert": {
       "helped": false,
       "taskComplete": false,
