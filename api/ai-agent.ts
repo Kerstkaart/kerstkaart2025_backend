@@ -15,7 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Only POST allowed' });
   }
 
-  const { userInput, chapter }: { userInput: string; chapter: number } = req.body;
+  const { userInput, chapter, history }: { userInput: string; chapter: number, history: string[] } = req.body;
 
   const prompt = `
   Je bent een AI-spelleider in een kerstige text adventure.
@@ -34,6 +34,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   Als de missie geslaagd is, begin je antwoord dan met "GESLAAGD"
   `;
 
+  const formattedHistory: { role: 'user' | 'assistant'; content: string }[] = [];
+
+  if (Array.isArray(history)) {
+    for (let i = 0; i < history.length; i++) {
+      const role = i % 2 === 0 ? 'user' : 'assistant';
+      formattedHistory.push({ role, content: history[i] });
+    }
+  }
+
+  formattedHistory.push({ role: 'user', content: userInput });
+
+  const messages = [
+    { role: 'system', content: prompt },
+    ...formattedHistory
+  ];
+
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -42,10 +58,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     },
     body: JSON.stringify({
       model: 'gpt-3.5-turbo',
-      messages: [
-        { role: 'system', content: prompt },
-        { role: 'user', content: userInput }
-      ]
+      messages
     })
   });
 
