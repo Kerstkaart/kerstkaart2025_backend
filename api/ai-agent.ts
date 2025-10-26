@@ -53,7 +53,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   Regels:
   - Als de speler de missie heeft uitgevoerd, begin je antwoord dan met "GESLAAGD".
-  - Als de speler een actie probeert uit te voeren die niet helpt in het oplossen van het probleem, of lijkt op een shortcut, bepaal dan een waarde tussen 10 en 20 als waarschijnlijkheid dat dit zou lukken, en rol een D20 om te bepalen of dit lukt. ALs de gerolde waarde hoger is dan de waarschijnlijkheid, dan lukt het de speler. Geef de D20 uitkomst ook terug in je response.
+  - Als de speler een actie probeert uit te voeren die niet helpt in het oplossen van het probleem, of lijkt op een shortcut, bepaal dan een waarde tussen 10 en 20 als waarschijnlijkheid dat dit zou lukken, en rol een D20 om te bepalen of dit lukt. Als de D20 uitkomst hoger is dan de D20 waarschijnlijkheid, dan lukt het de speler en kan hij verder. Geef de D20 uitkomst ook terug in je response.
   `;
 
   const formattedHistory: { role: 'user' | 'assistant'; content: string }[] = [];
