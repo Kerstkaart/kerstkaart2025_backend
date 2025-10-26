@@ -17,12 +17,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { userInput, chapter, history }: { userInput: string; chapter: number, history: string[] } = req.body;
 
-  const prompt = `
-  Je bent een AI-spelleider in een kerstige text adventure.
-
-  Setting:
-  Het is winter, bijna kerst en het sneeuwt. De speler arriveert in het dorpje "Tellytown": een klein, rustig dorpje. Normaal gesproken wordt hier ieder jaar een groot kerstfeest gevierd, maar dit jaar loopt alles in de soep...
-
+  const chapterContext: Record<number, string> = {
+  1: `
   Missie 1 gaat over kerstlichtjes.
   De speler is zojuist bij Robert aangekomen.
   Robert is verantwoordelijk voor de kerstlichtjes. Hij heeft de stroomkabels aangesloten, maar omdat niet alles in 1 keer werkte heeft hij continu zitten klagen over de stroom. Hierdoor heeft de stroom er ook geen zin meer in. Het doel van de speler is de stroom helpen om weer aan te sluiten op de kerstboom.
@@ -31,6 +27,29 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   Als de speler de stroom heeft geholpen om de weg te vinden naar de kerstboom is deze quest afgerond.
   Er zijn veel andere opties voor de speler om deze missie af te ronden. Zolang het de speler lukt om de kerstboomverlichting aan te krijgen is de missie geslaagd.
+  `,
+  
+  2: `
+  Missie 2 gaat over de muziekinstallatie
+  De speler is zojuist bij Linda aangekomen.
+  Linda is verantwoordelijk voor de muziek.
+  Ze is de muziekinstallatie kwijtgeraakt. Deze is meegenomen door spinnen. De spinnen hebben de muziekinstallatie meegenomen naar de kelder.
+  In de badkamer hebben de spinnen een webmaker 2025 geinstalleerd waarmee ze continu nieuwe spinnenwebben kunnen maken, om de muziekinstallatie voor altijd vast te houden.
+  De webmaker 2025 heeft haren nodig uit een doucheputje om spinnenwebben te maken.
+  Als de speler de haren uit het doucheputje haalt, of de badkamer schoonmaakt, worden er geen nieuwe spinnenwebben meer gemaakt en kan de muziekinstallatie losgehaald worden.
+  Als je de muziekinstallatie losmaakt en aan Linda geeft zal ze je bedanken:
+  Bedankt! Hiermee kan ik mijn afspeellijst eindelijk afspelen!`,
+  3: `...`
+};
+
+  const prompt = `
+  Je bent een AI-spelleider in een kerstige text adventure.
+
+  Setting:
+  Het is winter, bijna kerst en het sneeuwt. De speler arriveert in het dorpje "Tellytown": een klein, rustig dorpje. Normaal gesproken wordt hier ieder jaar een groot kerstfeest gevierd, maar dit jaar loopt alles in de soep...
+
+  ${chapterContext[chapter]}
+
   Als de missie geslaagd is, begin je antwoord dan met "GESLAAGD"
   `;
 
