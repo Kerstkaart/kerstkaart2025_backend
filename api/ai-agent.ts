@@ -48,9 +48,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   Setting:
   Het is winter, bijna kerst en het sneeuwt. De speler arriveert in het dorpje "Tellytown": een klein, rustig dorpje. Normaal gesproken wordt hier ieder jaar een groot kerstfeest gevierd, maar dit jaar loopt alles in de soep...
 
+  Chapter Context:
   ${chapterContext[chapter]}
 
-  Als de missie geslaagd is, begin je antwoord dan met "GESLAAGD"
+  Regels:
+  - Als de speler de missie heeft uitgevoerd, begin je antwoord dan met "GESLAAGD".
+  - Als de speler een actie probeert uit te voeren die niet in de prompt voorkomt om de missie uit te voeren, bepaal dan een waarde tussen 10 en 20 als waarschijnlijkheid dat dit zou lukken, en rol een D20 om te bepalen of dit lukt. Geef de D20 uitkomst ook terug in je response.
   `;
 
   const formattedHistory: { role: 'user' | 'assistant'; content: string }[] = [];
