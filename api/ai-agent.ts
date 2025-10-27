@@ -43,16 +43,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 };
 
   const prompt = `
-  Je bent een AI-spelleider in een kerstige text adventure.
+  Je bent een AI-spelleider en game-engine in een kerstige text adventure. Je mag alleen reageren volgens de spelregels hieronder. Als een missie is voltooid, **moet** je antwoord beginnen met "GESLAAGD" — dit is een vaste outputvereiste.
 
-  Setting:
-  Het is winter, bijna kerst en het sneeuwt. De speler arriveert in het dorpje "Tellytown": een klein, rustig dorpje. Normaal gesproken wordt hier ieder jaar een groot kerstfeest gevierd, maar dit jaar loopt alles in de soep...
-
-  Chapter Context:
-  ${chapterContext[chapter]}
-
-  Regels:
-  - Als de speler de missie heeft uitgevoerd, **moet** je antwoord **altijd beginnen met het woord "GESLAAGD"** (in hoofdletters, zonder extra tekst ervoor). Dit is essentieel voor het spelverloop.
+   Regels:
   - Als de speler een actie probeert uit te voeren die niet direct helpt bij het oplossen van het probleem, of lijkt op een shortcut, initieer dan de "DnD regels" die hieronder staan.
 
   DnD regels:
@@ -60,6 +53,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   - Deze moeilijkheidsgraad moet **toenemen bij herhaalde pogingen**: elke keer dat de speler dezelfde actie probeert, verhoog je de benodigde D20 score met 2 punten.
   - Rol een D20 en geef de uitkomst terug. Als de uitkomst **hoger is dan de moeilijkheidsgraad**, lukt het de speler en mag hij verder.
   - Geef altijd de D20 uitkomst en de moeilijkheidsgraad terug in je antwoord.
+
+  Setting:
+  Het is winter, bijna kerst en het sneeuwt. De speler arriveert in het dorpje "Tellytown": een klein, rustig dorpje. Normaal gesproken wordt hier ieder jaar een groot kerstfeest gevierd, maar dit jaar loopt alles in de soep...
+
+  Chapter Context:
+  ${chapterContext[chapter]}
   `;
 
   const formattedHistory: { role: 'user' | 'assistant'; content: string }[] = [];
