@@ -52,8 +52,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   ${chapterContext[chapter]}
 
   Regels:
-  - Als de speler de missie heeft uitgevoerd, begin je antwoord dan met "GESLAAGD".
-  - Als de speler een actie probeert uit te voeren die niet helpt in het oplossen van het probleem, of lijkt op een shortcut, bepaal dan een waarde tussen 10 en 20 als waarschijnlijkheid dat dit zou lukken, en rol een D20 om te bepalen of dit lukt. Als de D20 uitkomst hoger is dan de D20 waarschijnlijkheid, dan lukt het de speler en kan hij verder. Geef de D20 uitkomst ook terug in je response.
+  - Als de speler de missie heeft uitgevoerd, **moet** je antwoord **altijd beginnen met het woord "GESLAAGD"** (in hoofdletters, zonder extra tekst ervoor). Dit is essentieel voor het spelverloop.
+  - Als de speler een actie probeert uit te voeren die niet direct helpt bij het oplossen van het probleem, of lijkt op een shortcut, bepaal dan een waarde tussen 10 en 20 als moeilijkheidsgraad.
+  - Deze moeilijkheidsgraad moet **toenemen bij herhaalde pogingen**: elke keer dat de speler dezelfde actie probeert, verhoog je de benodigde D20 score met 2 punten.
+  - Rol een D20 en geef de uitkomst terug. Als de uitkomst **hoger is dan de moeilijkheidsgraad**, lukt het de speler en mag hij verder.
+  - Geef altijd de D20 uitkomst en de moeilijkheidsgraad terug in je antwoord.
   `;
 
   const formattedHistory: { role: 'user' | 'assistant'; content: string }[] = [];
