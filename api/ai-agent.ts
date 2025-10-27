@@ -39,7 +39,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   Als de speler de haren uit het doucheputje haalt, of de badkamer schoonmaakt, worden er geen nieuwe spinnenwebben meer gemaakt en kan de muziekinstallatie losgehaald worden.
   Als je de muziekinstallatie losmaakt en aan Linda geeft zal ze je bedanken:
   Bedankt! Hiermee kan ik mijn afspeellijst eindelijk afspelen!`,
-  3: `...`
+  
+  3: `
+  Missie 3 gaat over eten
+  De speler is zojuist bij Bram aangekomen, een topchef die verantwoordelijk is voor het dessert: crème brûlées.
+  Bram probeert al de hele ochtend crème brûlées te maken, maar telkens als hij ze uit de oven haalt, worden ze stiekem opgegeten door twee katten: Lila en Lolly. Deze katten zijn dol op room en suiker, en weten precies wanneer ze moeten toeslaan.
+  Het doel van de speler is om Bram te helpen genoeg crème brûlées te maken zodat er genoeg zijn voor het kerstdiner — zelfs als Lila en Lolly er een paar stelen.
+  De oplossing ligt in samenwerking: de speler moet leren hoe je crème brûlées maakt, en Bram helpen om ze sneller en efficiënter te bereiden. Als ze samen meer crème brûlées maken dan de katten kunnen opeten, is de missie geslaagd.
+  Er zijn meerdere manieren om deze missie te voltooien. Zolang het de speler lukt om het kerstdessert te redden en Bram tevreden is, is de missie geslaagd.
+  `
 };
 
   const prompt = `
