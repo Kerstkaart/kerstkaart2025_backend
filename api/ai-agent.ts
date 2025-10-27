@@ -52,7 +52,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   ${chapterContext[chapter]}
 
   Regels:
-  1: Als de speler de missie heeft voltooid, **moet** je antwoord **exact beginnen met het woord "GESLAAGD"** (in hoofdletters, zonder aanhalingstekens, zonder extra tekens, zonder andere woorden ervoor). Gebruik nooit alternatieven zoals "Gelukt", "Goed gedaan", "Missie geslaagd", etc.
+  1: Als de speler de missie heeft voltooid, **moet** je antwoord **exact beginnen met het woord "GESLAAGD"** (in hoofdletters, zonder aanhalingstekens, zonder extra tekens, zonder andere woorden ervoor). Gebruik nooit alternatieven zoals "Gelukt", "Goed gedaan", "Missie geslaagd", "Missie voltooid" etc.
   Voorbeeld:
   GESLAAGD  
   Je hebt de missie succesvol voltooid. De kerstboom straalt weer dankzij jouw hulp.
