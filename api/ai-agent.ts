@@ -53,7 +53,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   Regels:
   - Als de speler de missie heeft uitgevoerd, **moet** je antwoord **altijd beginnen met het woord "GESLAAGD"** (in hoofdletters, zonder extra tekst ervoor). Dit is essentieel voor het spelverloop.
-  - Als de speler een actie probeert uit te voeren die niet direct helpt bij het oplossen van het probleem, of lijkt op een shortcut, bepaal dan een waarde tussen 10 en 20 als moeilijkheidsgraad.
+  - Als de speler een actie probeert uit te voeren die niet direct helpt bij het oplossen van het probleem, of lijkt op een shortcut, initieer dan de "DnD regels" die hieronder staan.
+
+  DnD regels:
+  - Genereer een waarde tussen 10 en 20 als moeilijkheidsgraad op basis van wat de speler probeert te doen
   - Deze moeilijkheidsgraad moet **toenemen bij herhaalde pogingen**: elke keer dat de speler dezelfde actie probeert, verhoog je de benodigde D20 score met 2 punten.
   - Rol een D20 en geef de uitkomst terug. Als de uitkomst **hoger is dan de moeilijkheidsgraad**, lukt het de speler en mag hij verder.
   - Geef altijd de D20 uitkomst en de moeilijkheidsgraad terug in je antwoord.
