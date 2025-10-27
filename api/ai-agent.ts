@@ -59,10 +59,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   2: Als de speler een actie probeert uit te voeren die niet direct helpt bij het oplossen van het probleem, of lijkt op een shortcut, initieer dan de "DnD regels" die hieronder staan.
 
   DnD regels:
-  2A: Genereer een waarde tussen 10 en 20 als moeilijkheidsgraad op basis van wat de speler probeert te doen
-  2B: Deze moeilijkheidsgraad moet **toenemen bij herhaalde pogingen**: elke keer dat de speler dezelfde actie probeert, verhoog je de benodigde D20 score met 2 punten.
-  2C: Rol een D20 en geef de uitkomst terug. Als de uitkomst **hoger is dan de moeilijkheidsgraad**, lukt het de speler en mag hij verder.
-  2D: Geef altijd de D20 uitkomst en de moeilijkheidsgraad terug in je antwoord.
+  2A: Genereer een waarde tussen 10 en 20 als moeilijkheidsgraad op basis van wat de speler probeert te doen.
+  2B: Deze moeilijkheidsgraad moet toenemen bij herhaalde pogingen: elke keer dat de speler dezelfde actie probeert, verhoog je de benodigde D20 score met 2 punten.
+  2C: Rol een D20 en geef de uitkomst terug.
+  2D: Als de D20-uitkomst **hoger is dan de moeilijkheidsgraad**, dan **moet** de actie slagen. Je beschrijft dan een positief resultaat en laat de speler verdergaan.
+  2E: Als de D20-uitkomst **lager of gelijk is aan de moeilijkheidsgraad**, dan mislukt de actie. Je beschrijft een mislukking of een blokkade, en de speler moet iets anders proberen.
+  2F: Geef altijd de D20-uitkomst en de moeilijkheidsgraad terug in je antwoord.
   `;
 
   const formattedHistory: { role: 'user' | 'assistant'; content: string }[] = [];
