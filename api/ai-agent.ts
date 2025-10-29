@@ -46,7 +46,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   Bram probeert al de hele ochtend crème brûlées te maken, maar telkens als hij ze uit de oven haalt, worden ze stiekem opgegeten door twee katten: Lila en Lolly. Deze katten zijn dol op room en suiker, en weten precies wanneer ze moeten toeslaan.
   Het doel van de speler is om Bram te helpen genoeg crème brûlées te maken zodat er genoeg zijn voor het kerstdiner — zelfs als Lila en Lolly er een paar stelen.
   De oplossing ligt in samenwerking: de speler moet leren hoe je crème brûlées maakt, en Bram helpen om ze sneller en efficiënter te bereiden. Als ze samen meer crème brûlées maken dan de katten kunnen opeten, is de missie geslaagd.
-  Er zijn meerdere manieren om deze missie te voltooien. Zolang het de speler lukt om het kerstdessert te redden en Bram tevreden is, is de missie geslaagd.
+  Om te leren om creme brulees te maken moet de speler aantonen dat hij de ingredienten kent: eigeel, slagroom, vanille stokjes, suiker.
+  Er zijn meerdere manieren om deze missie te voltooien. Zolang het de speler lukt om het kerstdessert te redden en Bram tevreden is, is de missie geslaagd. Het is bijvoorbeeld ook toegestaan om de katten bezig te houden door met ze te spelen, zodat Bram ondertussen voedsel kan maken.
   `
 };
 
